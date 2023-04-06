@@ -1,3 +1,4 @@
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
 import * as esbuild from 'esbuild-wasm';
 import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,7 +9,7 @@ import CodeEditor from "./components/code-editor";
 const App = () => {
     const ref = useRef<any>();
     const iframe = useRef<any>();
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState<string | undefined>('');
     const env:string = ['process', 'env', 'NODE_ENV'].join('.');
 
     const startService = async () => {
@@ -91,8 +92,4 @@ const App = () => {
     );
 };
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-        <App/>
-    </React.StrictMode>
-);
+export default App;
