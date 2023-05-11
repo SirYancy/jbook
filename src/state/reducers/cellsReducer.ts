@@ -24,7 +24,9 @@ const reducer = produce(
         switch (action.type) {
             case ActionType.UPDATE_CELL:
                 const { id, content } = action.payload;
-                state.data[id].content = content;
+                if(id != null && content != null) {
+                    state.data[id].content = content;
+                }
                 return state;
             case ActionType.DELETE_CELL:
                 delete state.data[action.payload];
